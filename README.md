@@ -11,14 +11,9 @@ backend/
 ├── .env
 ├── requirements.txt
 │
-├── config/
+├── backend/
 │   ├── __init__.py
-│   ├── settings/
-│   │   ├── __init__.py
-│   │   ├── base.py
-│   │   ├── dev.py
-│   │   └── prod.py
-│   │
+│   ├── settings.py  
 │   ├── urls.py
 │   ├── asgi.py
 │   └── wsgi.py
