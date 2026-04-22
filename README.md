@@ -1,6 +1,10 @@
-### FOLDER ARCHITECTURE ###
+### 📁 FOLDER ARCHITECTURE
 
-## BACKEND ##
+---
+
+## 🔧 BACKEND
+
+```bash
 backend/
 │
 ├── manage.py
@@ -21,7 +25,7 @@ backend/
 │
 ├── apps/                          # domain apps
 │   ├── __init__.py
-│
+│   │
 │   ├── users/
 │   │   ├── __init__.py
 │   │   ├── models.py
@@ -61,9 +65,13 @@ backend/
 ├── media/
 └── docs/
     └── ARCHITECTURE.md
+```
 
+---
 
-## WEB ##
+## 🌐 WEB (React + Tailwind)
+
+```bash
 src/
 │
 ├── app/                      # App-level setup (top-most layer)
@@ -78,7 +86,7 @@ src/
 ├── pages/                   # Screens / routes (Top-Down)
 │   ├── dashboard/
 │   │   ├── DashboardPage.jsx
-│   │   └── components/      # Page-specific components
+│   │   └── components/
 │   │       ├── StatsCard.jsx
 │   │       └── ActivityFeed.jsx
 │   │
@@ -93,42 +101,46 @@ src/
 │       └── RegisterPage.jsx
 │
 ├── components/              # GLOBAL reusable UI (Bottom-Up)
-│   ├── ui/                  # Pure UI (dumb components)
+│   ├── ui/
 │   │   ├── Button.jsx
 │   │   ├── Input.jsx
 │   │   ├── Modal.jsx
 │   │
-│   ├── common/              # Slightly smarter reusable components
+│   ├── common/
 │   │   ├── Navbar.jsx
 │   │   ├── Sidebar.jsx
 │   │   └── Loader.jsx
 │
-├── hooks/                   # Custom hooks (Bottom-Up)
+├── hooks/                   # Custom hooks
 │   ├── useAuth.js
 │   ├── useFetch.js
 │   └── useDebounce.js
 │
 ├── services/                # API layer (Django integration)
-│   ├── api.js               # base fetch/axios setup
+│   ├── api.js
 │   ├── authService.js
 │   ├── bookingService.js
 │
-├── context/                 # React Context (global state)
+├── context/                 # Global state
 │   ├── AuthContext.jsx
 │
-├── utils/                   # Pure helper functions
+├── utils/
 │   ├── formatDate.js
 │   ├── currency.js
 │
-├── styles/                  # Tailwind/global styles
+├── styles/
 │   └── index.css
 │
-└── assets/                  # images/icons
+└── assets/
     └── images/
+```
 
+---
 
-## APP ##
-app/                          # routing layer (DO NOT overstuff)
+## 📱 MOBILE APP (React Native + Expo)
+
+```bash
+app/                          # routing layer (Expo Router)
 │   ├── _layout.tsx
 │   ├── index.tsx
 │   ├── auth/
@@ -138,7 +150,7 @@ app/                          # routing layer (DO NOT overstuff)
 │   │   ├── index.tsx
 │   │   └── details.tsx
 │
-├── src/                      # actual app logic (IMPORTANT)
+├── src/                      # actual app logic
 │   ├── components/
 │   │   ├── ui/
 │   │   └── common/
@@ -157,6 +169,7 @@ app/                          # routing layer (DO NOT overstuff)
 │   ├── hooks/
 │   ├── services/
 │   ├── utils/
-│   ├── store/               # if using Zustand/Redux
+│   ├── store/               # Zustand / Redux (optional)
 │
 ├── assets/
+```
