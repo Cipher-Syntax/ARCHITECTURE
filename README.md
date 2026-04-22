@@ -63,9 +63,11 @@ backend/
 ├── media/
 └── docs/
     └── ARCHITECTURE.md
+```
 
+## 🌐 WEB (React + Tailwind)
 
-🌐 WEB (React + Tailwind)
+```bash
 src/
 │
 ├── app/
@@ -138,7 +140,11 @@ src/
     ├── icons/
     └── fonts/
 
-📱 MOBILE APP (React Native + Expo)
+```
+
+## 📱 MOBILE APP (React Native + Expo)
+
+```bash
 app/
 │
 ├── _layout.tsx
@@ -203,8 +209,9 @@ src/
 └── constants/
     └── config.ts
 
-
 assets/
 ├── images/
 ├── icons/
 └── fonts/
+
+```
