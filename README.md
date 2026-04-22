@@ -1,8 +1,8 @@
-### 📁 FOLDER ARCHITECTURE
+# 📁 FULL STACK ARCHITECTURE (FINAL CLEAN VERSION)
 
 ---
 
-## 🔧 BACKEND
+## 🔧 BACKEND (Django + DRF)
 
 ```bash
 backend/
@@ -11,29 +11,28 @@ backend/
 ├── .env
 ├── requirements.txt
 │
-├── config/                        # project configuration
+├── config/
 │   ├── __init__.py
 │   ├── settings/
 │   │   ├── __init__.py
-│   │   ├── base.py               # shared settings
-│   │   ├── dev.py                # development
-│   │   └── prod.py               # production
+│   │   ├── base.py
+│   │   ├── dev.py
+│   │   └── prod.py
 │   │
 │   ├── urls.py
 │   ├── asgi.py
 │   └── wsgi.py
 │
-├── apps/                          # domain apps
+├── apps/
 │   ├── __init__.py
 │   │
 │   ├── users/
-│   │   ├── __init__.py
 │   │   ├── models.py
 │   │   ├── serializers.py
 │   │   ├── views.py
 │   │   ├── urls.py
-│   │   ├── services.py           # business logic
-│   │   ├── selectors.py          # query logic
+│   │   ├── services.py
+│   │   ├── selectors.py
 │   │   ├── admin.py
 │   │   ├── apps.py
 │   │   ├── tests/
@@ -49,14 +48,13 @@ backend/
 │   │   ├── tests/
 │   │   └── migrations/
 │   │
-│   └── core/                     # shared/common logic
+│   └── core/
 │       ├── models.py
 │       ├── permissions.py
 │       ├── pagination.py
-│       ├── utils.py
+│       └── utils.py
 │
-├── common/                        # cross-project reusable code
-│   ├── __init__.py
+├── common/
 │   ├── exceptions.py
 │   ├── middleware.py
 │   └── constants.py
@@ -65,111 +63,145 @@ backend/
 ├── media/
 └── docs/
     └── ARCHITECTURE.md
-```
 
----
-
-## 🌐 WEB (React + Tailwind)
-
-```bash
 src/
 │
-├── app/                      # App-level setup (top-most layer)
+├── app/
 │   ├── App.jsx
-│   ├── routes.jsx           # Centralized routing
-│   └── providers.jsx        # Context providers (auth, theme, etc.)
+│   ├── routes.jsx
+│   └── providers.jsx
 │
-├── layouts/                 # Page layouts (Top-Down)
+├── layouts/
 │   ├── MainLayout.jsx
-│   ├── AuthLayout.jsx
+│   └── AuthLayout.jsx
 │
-├── pages/                   # Screens / routes (Top-Down)
-│   ├── dashboard/
-│   │   ├── DashboardPage.jsx
-│   │   └── components/
-│   │       ├── StatsCard.jsx
-│   │       └── ActivityFeed.jsx
+├── features/
+│   ├── auth/
+│   │   ├── pages/
+│   │   │   ├── LoginPage.jsx
+│   │   │   └── RegisterPage.jsx
+│   │   │
+│   │   ├── components/
+│   │   │   └── AuthForm.jsx
+│   │   │
+│   │   ├── hooks/
+│   │   │   └── useAuth.js
+│   │   │
+│   │   └── services/
+│   │       └── authService.js
 │   │
 │   ├── booking/
-│   │   ├── BookingPage.jsx
-│   │   └── components/
-│   │       ├── BookingCard.jsx
-│   │       └── BookingForm.jsx
-│   │
-│   └── auth/
-│       ├── LoginPage.jsx
-│       └── RegisterPage.jsx
+│   │   ├── pages/
+│   │   │   └── BookingPage.jsx
+│   │   │
+│   │   ├── components/
+│   │   │   ├── BookingCard.jsx
+│   │   │   └── BookingForm.jsx
+│   │   │
+│   │   ├── hooks/
+│   │   │   └── useBookings.js
+│   │   │
+│   │   └── services/
+│   │       └── bookingService.js
 │
-├── components/              # GLOBAL reusable UI (Bottom-Up)
+├── components/
 │   ├── ui/
 │   │   ├── Button.jsx
 │   │   ├── Input.jsx
-│   │   ├── Modal.jsx
+│   │   └── Modal.jsx
 │   │
-│   ├── common/
-│   │   ├── Navbar.jsx
-│   │   ├── Sidebar.jsx
-│   │   └── Loader.jsx
+│   └── common/
+│       ├── Navbar.jsx
+│       ├── Sidebar.jsx
+│       └── Loader.jsx
 │
-├── hooks/                   # Custom hooks
-│   ├── useAuth.js
-│   ├── useFetch.js
+├── services/
+│   └── api.js
+│
+├── hooks/
 │   └── useDebounce.js
 │
-├── services/                # API layer (Django integration)
-│   ├── api.js
-│   ├── authService.js
-│   ├── bookingService.js
-│
-├── context/                 # Global state
-│   ├── AuthContext.jsx
+├── context/
+│   └── AuthContext.jsx
 │
 ├── utils/
 │   ├── formatDate.js
-│   ├── currency.js
+│   └── currency.js
 │
 ├── styles/
 │   └── index.css
 │
 └── assets/
-    └── images/
-```
+    ├── images/
+    ├── icons/
+    └── fonts/
 
----
-
-## 📱 MOBILE APP (React Native + Expo)
-
-```bash
-app/                          # routing layer (Expo Router)
-│   ├── _layout.tsx
+app/
+│
+├── _layout.tsx
+├── index.tsx
+│
+├── auth/
+│   ├── login.tsx
+│   └── register.tsx
+│
+├── bookings/
 │   ├── index.tsx
+│   └── details.tsx
+│
+└── (tabs)/
+    ├── home.tsx
+    └── profile.tsx
+
+
+src/
+│
+├── features/
 │   ├── auth/
-│   │   ├── login.tsx
-│   │   └── register.tsx
-│   ├── bookings/
-│   │   ├── index.tsx
-│   │   └── details.tsx
-│
-├── src/                      # actual app logic
-│   ├── components/
-│   │   ├── ui/
-│   │   └── common/
-│   │
-│   ├── features/
-│   │   ├── auth/
-│   │   │   ├── hooks/
-│   │   │   ├── services/
-│   │   │   └── components/
+│   │   ├── components/
+│   │   │   └── AuthForm.tsx
 │   │   │
-│   │   ├── bookings/
-│   │   │   ├── hooks/
-│   │   │   ├── services/
-│   │   │   └── components/
+│   │   ├── hooks/
+│   │   │   └── useAuth.ts
+│   │   │
+│   │   └── services/
+│   │       └── authService.ts
 │   │
-│   ├── hooks/
-│   ├── services/
-│   ├── utils/
-│   ├── store/               # Zustand / Redux (optional)
+│   ├── bookings/
+│   │   ├── components/
+│   │   │   └── BookingCard.tsx
+│   │   │
+│   │   ├── hooks/
+│   │   │   └── useBookings.ts
+│   │   │
+│   │   └── services/
+│   │       └── bookingService.ts
 │
-├── assets/
-```
+├── components/
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   └── Input.tsx
+│   │
+│   └── common/
+│       └── Loader.tsx
+│
+├── services/
+│   └── api.ts
+│
+├── hooks/
+│   └── useDebounce.ts
+│
+├── utils/
+│   └── formatDate.ts
+│
+├── store/
+│   └── authStore.ts
+│
+└── constants/
+    └── config.ts
+
+
+assets/
+├── images/
+├── icons/
+└── fonts/
