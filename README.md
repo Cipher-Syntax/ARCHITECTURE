@@ -64,6 +64,8 @@ backend/
 └── docs/
     └── ARCHITECTURE.md
 
+
+🌐 WEB (React + Tailwind)
 src/
 │
 ├── app/
@@ -136,6 +138,7 @@ src/
     ├── icons/
     └── fonts/
 
+📱 MOBILE APP (React Native + Expo)
 app/
 │
 ├── _layout.tsx
