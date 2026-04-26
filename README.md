@@ -56,8 +56,12 @@ backend/
 │
 ├── static/
 ├── media/
-└── docs/
-    └── ARCHITECTURE.md
+└── docs/       
+    ├── FEATURES.md
+    ├── DECISIONS.md
+    ├── TODOS.md
+    └── BUGS.md
+
 ```
 
 ## 🌐 WEB (React + Tailwind)
@@ -188,3 +192,5 @@ assets/
 ```bash
 ARCHITECTURE.md
 GUIDELINES.md
+
+```
