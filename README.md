@@ -185,3 +185,6 @@ assets/
 └── fonts/
 
 ```
+```bash
+ARCHITECTURE.md
+GUIDELINES.md
